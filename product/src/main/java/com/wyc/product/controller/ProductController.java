@@ -13,9 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,5 +62,11 @@ public class ProductController {
         }
 
         return ResultVoUtil.success(productVOS);
+    }
+
+    @PostMapping(value = "/orderProductMsg")
+    public ResultVO<List<ProductInfo>> orderProductMsg(@RequestBody List<String> productIdList){
+        List<ProductInfo> productInfos = productInfoService.findByProductIdIn(productIdList);
+        return ResultVoUtil.success(productInfos);
     }
 }

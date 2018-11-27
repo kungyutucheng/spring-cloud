@@ -22,4 +22,9 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     public List<ProductInfo> findAll(Integer productStatus) {
         return productInfoRepository.findByProductStatus(productStatus);
     }
+
+    @Override
+    public List<ProductInfo> findByProductIdIn(List<String> productIdList) {
+        return productInfoRepository.findByProductIdIn(productIdList);
+    }
 }
