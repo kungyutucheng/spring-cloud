@@ -1,4 +1,4 @@
-package com.wyc.demo;
+package com.wyc.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

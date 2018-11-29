@@ -1,4 +1,4 @@
-package com.wyc.demo;
+package com.wyc.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

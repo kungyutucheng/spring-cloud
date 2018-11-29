@@ -1,17 +1,18 @@
-package com.wyc.order.enums;
+package com.wyc.common.enums;
 
 import lombok.Getter;
 
 /**
  * @author: wyc
- * @date: 2018/11/26
+ * @date: 2018/11/29
  */
 @Getter
 public enum ResultEnum {
+    PRODUCT_UN_EXIST(0,"产品不存在"),PRODUCT_NOT_ENOUGH_STOCK(1,"库存不足");
 
-    PARAM_ERROR(1,"参数错误"),CART_EMPTY(2,"购物车为空"),STOCK_UN_ENOUGH(3,"库存不足");
 
     private Integer code;
+
     private String message;
 
     ResultEnum(Integer code, String message) {
