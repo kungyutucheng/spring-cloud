@@ -1,7 +1,7 @@
 package com.wyc.server;
 
 
-import com.wyc.server.vo.ResultVO;
+import com.wyc.common.vo.ResultVO;
 
 /**
  * @author: wyc

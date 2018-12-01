@@ -3,6 +3,7 @@ package com.wyc.order.service.impl;
 import com.wyc.client.client.ProductClient;
 import com.wyc.common.dataopbejct.DecreaseStockInput;
 import com.wyc.common.dataopbejct.ProductInfoOutput;
+import com.wyc.common.vo.ResultVO;
 import com.wyc.order.dataobject.OrderDetail;
 import com.wyc.order.dataobject.OrderMaster;
 import com.wyc.order.dto.OrderDTO;
@@ -46,12 +47,12 @@ public class OrderServiceImpl implements OrderService {
         String orderId = KeyUtil.genUniqueKey();
 
         List<String> productIdList = orderDTO.getOrderDetails().stream().map(OrderDetail::getProductId).collect(Collectors.toList());
-        List<ProductInfoOutput> productInfoOutputs = productClient.getProductList(productIdList);
+        ResultVO<List<ProductInfoOutput>> resultVO = productClient.getProductList(productIdList);
         BigDecimal orderAmount = BigDecimal.ZERO;
-        for (ProductInfoOutput productInfoOutput : productInfoOutputs) {
+        for (ProductInfoOutput productInfoOutput : resultVO.getData()) {
             for (OrderDetail orderDetail : orderDTO.getOrderDetails()) {
                 if (StringUtils.equals(orderDetail.getProductId(), productInfoOutput.getProductId())) {
-                    int result = orderDetail.getProductQuantity() - productInfoOutput.getProductStock();
+                    int result = productInfoOutput.getProductStock() - orderDetail.getProductQuantity();
                     if (result < 0) {
                         throw new OrderException(ResultEnum.STOCK_UN_ENOUGH);
                     }

@@ -1,6 +1,7 @@
 package com.wyc.server.controller;
 
 import com.wyc.common.dataopbejct.DecreaseStockInput;
+import com.wyc.common.vo.ResultVO;
 import com.wyc.server.ResultVoUtil;
 import com.wyc.server.dataobject.ProductCategory;
 import com.wyc.server.dataobject.ProductInfo;
@@ -9,7 +10,6 @@ import com.wyc.server.service.ProductCategoryService;
 import com.wyc.server.service.ProductInfoService;
 import com.wyc.server.vo.ProductInfoVO;
 import com.wyc.server.vo.ProductVO;
-import com.wyc.server.vo.ResultVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

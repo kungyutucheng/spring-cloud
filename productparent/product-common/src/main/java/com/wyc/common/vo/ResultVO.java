@@ -1,4 +1,4 @@
-package com.wyc.server.vo;
+package com.wyc.common.vo;
 
 import lombok.Data;
 

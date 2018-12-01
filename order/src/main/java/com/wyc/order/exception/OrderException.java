@@ -17,6 +17,7 @@ public class OrderException extends RuntimeException{
     }
 
     public OrderException(ResultEnum resultEnum){
+        super(resultEnum.getMessage());
         this.code = resultEnum.getCode();
         this.message = resultEnum.getMessage();
     }
