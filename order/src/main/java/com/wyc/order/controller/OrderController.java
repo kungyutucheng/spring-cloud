@@ -8,7 +8,9 @@ import com.wyc.order.service.OrderService;
 import com.wyc.order.utils.ResultVoUtil;
 import com.wyc.order.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,9 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/order")
 public class OrderController {
+
+    @Value(("${env}"))
+    private String env;
 
     @Autowired
     private OrderService orderService;
@@ -38,6 +43,11 @@ public class OrderController {
         OrderDTO orderDTO = OrderForm2OrderDTOConverter.converter(orderForm);
         orderDTO = orderService.create(orderDTO);
         return ResultVoUtil.success(orderDTO.getOrderId());
+    }
+
+    @GetMapping(value = "/print")
+    public String print(){
+        return env;
     }
 
 }
