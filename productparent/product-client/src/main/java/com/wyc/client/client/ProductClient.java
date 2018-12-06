@@ -3,7 +3,7 @@ package com.wyc.client.client;
 import com.wyc.common.dataopbejct.DecreaseStockInput;
 import com.wyc.common.dataopbejct.ProductInfoOutput;
 import com.wyc.common.vo.ResultVO;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
